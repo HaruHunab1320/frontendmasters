@@ -462,8 +462,30 @@ function makeHistory(limit) {
 
 // CHALLENGE 19
 function blackjack(array) {
+  const store = array;
+  let count;
 
+  return ((n1, n2) => { 
+    let i;
+    let total = 0;
+    
+    return (() => {  
+      if (i === undefined){ 
+      if (count !== undefined) { i = count; total = n1 + n2; return total }
+        i = 0; total = n1 + n2; return total;
+      } 
+      
+      total = total + store[i];     
+      
+      if (total <= 21) { i++;  return (total); } 
+      if (total > 21) { total = "bust"; return "bust"; } 
+      count = i + 1;
+      return ("You are done");
+  	});   
+  });
 }
+
+    
 
 // /*** Uncomment these to check your work! ***/
 
@@ -480,7 +502,7 @@ function blackjack(array) {
 // console.log(i_like_to_live_dangerously()); // => should log 'you are done!'
 // console.log(i_like_to_live_dangerously()); // => should log 'you are done!'
 
-// /*** BELOW LINES ARE FOR THE BONUS ***/
+// // /*** BELOW LINES ARE FOR THE BONUS ***/
 
 // /*** PLAYER 2 ***/
 // const i_TOO_like_to_live_dangerously = deal(2, 2);
